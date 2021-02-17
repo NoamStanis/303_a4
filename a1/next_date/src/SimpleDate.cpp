@@ -1,8 +1,4 @@
-//
-// Created by Noam Stanislawski on 2/15/21.
-//
-
-#include "SimpleDate.h"
+#include "include/SimpleDate.h"
 #include <iostream>
 #include <string>
 
@@ -13,5 +9,10 @@ SimpleDate::SimpleDate(int m, int d, int y) {
 }
 
 std::string SimpleDate::toString() {
-    return "This is SimpleDate's toString";
+    return "mm/dd/yyyy";
+}
+
+SimpleDate SimpleDate::nextDate() {
+    SimpleDate toReturn(0,0,0);
+    return toReturn;
 }

@@ -1,6 +1,3 @@
-//
-// Created by Noam Stanislawski on 2/15/21.
-//
 
 #ifndef REPO_NCSTANISLAWSKI_SIMPLEDATE_H
 #define REPO_NCSTANISLAWSKI_SIMPLEDATE_H

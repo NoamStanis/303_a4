@@ -1,6 +1,3 @@
-//
-// Created by Noam Stanislawski on 2/15/21.
-//
 #include <iostream>
 
 void validateInput() {
