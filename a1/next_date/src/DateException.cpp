@@ -1,9 +1,8 @@
-#include <iostream>
 #include <exception>
+#include "DateException.h"
 
-class DateException: public exception {
-public: DateException() {
-
+DateException::DateException() { }
+const char *DateException::what() const throw() {
+    return "THIS IS DATE EXCEPTION";
 }
 
-};

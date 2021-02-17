@@ -12,7 +12,7 @@ private:
     int year;
 
 public:
-    SimpleDate(int m, int d, int y);
+    SimpleDate(std::string date);
     std::string toString();
 
     SimpleDate nextDate();
