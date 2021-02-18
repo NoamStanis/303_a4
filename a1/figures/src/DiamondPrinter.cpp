@@ -22,7 +22,7 @@ void DiamondPrinter::printUpwardTriangle() {
     char star  = '*';
     char space =  ' ';
 
-    for(int i = rows; i >= 0; i--) {
+    for(int i = rows; i > 0; i--) {
         std::cout << std::string(i,space);
         std::cout << std::string(k,star) << endl;
         k += 2;

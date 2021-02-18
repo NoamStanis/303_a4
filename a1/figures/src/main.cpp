@@ -1,5 +1,5 @@
 #include <iostream>
-#include "FigurePrinter.h"
+#include <FigurePrinter.h>
 #include "TrianglePrinter.h"
 #include "DiamondPrinter.h"
 

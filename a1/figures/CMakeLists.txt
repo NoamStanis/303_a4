@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 #project name
-project(figures)
+project(a1_figures)
 
 #define c++ standard
 set(CMAKE_CXX_STANDARD 14)
@@ -26,4 +26,4 @@ file(GLOB_RECURSE SRC_FILES
         )
 
 #include all source code files to generate an executable
-add_executable(figures ${SRC_FILES} )
+add_executable(a1_figures ${SRC_FILES} )
