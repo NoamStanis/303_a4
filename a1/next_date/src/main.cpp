@@ -1,10 +1,10 @@
 #include <iostream>
 #include "SimpleDate.h"
 #include "DateException.h"
+#include <algorithm>
+#include <string>
 
-using namespace std;
-
-string date;
+std::string date;
 
 void validateInput(SimpleDate &sd) {
     DateException e;
@@ -37,8 +37,8 @@ void validateInput(SimpleDate &sd) {
     }
 
     int months30 [4] = {9,4,6,11};
-    int *monthCheck = find(begin(months30),end(months30), month);
-    if(monthCheck != end(months30)) {
+    int *monthCheck = std::find(std::begin(months30),std::end(months30), month);
+    if(monthCheck != std::end(months30)) {
         if(day < 1 || day > 30) {
             e = DateException("Invalid Day");
             throw e;
@@ -59,6 +59,6 @@ int main(int argc, char *argv[]) {
     SimpleDate sd = SimpleDate(date);
     validateInput(sd);
     SimpleDate nd =  sd.nextDate();
-    cout << nd.toString() << endl;
+    std::cout << nd.toString() << std::endl;
     return 0;
 }
