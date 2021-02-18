@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 #project name
-project(next_date)
+project(a1-next-date)
 
 #define c++ standard
 set(CMAKE_CXX_STANDARD 14)
@@ -16,9 +16,12 @@ include_directories(
 
 #define a list, called SRC_FILES, that stores all source code files within "include" and "src"
 file(GLOB_RECURSE SRC_FILES
-        "${PROJECT_SOURCE_DIR}/include/*.h"
-        "${PROJECT_SOURCE_DIR}/src/*.cpp"
+        "${PROJECT_SOURCE_DIR}/include/SimpleDate.h.h"
+        "${PROJECT_SOURCE_DIR}/include/DateException.h"
+        "${PROJECT_SOURCE_DIR}/src/SimpleDate.cpp"
+        "${PROJECT_SOURCE_DIR}/src/DateException.cpp"
+        "${PROJECT_SOURCE_DIR}/src/main.cpp"
         )
 
 #include all source code files to generate an executable
-add_executable(next_date ${SRC_FILES})
+add_executable(a1-next-date ${SRC_FILES} )

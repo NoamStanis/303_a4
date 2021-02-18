@@ -1,8 +1,14 @@
 #include <exception>
+#include <iostream>
 #include "DateException.h"
 
-DateException::DateException() { }
+DateException::DateException(const std::string &message){
+    m = message;
+}
+
+DateException::DateException() {}
+
 const char *DateException::what() const throw() {
-    return "THIS IS DATE EXCEPTION";
+    return m.c_str();
 }
 
