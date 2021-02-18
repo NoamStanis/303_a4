@@ -15,7 +15,6 @@ void DiamondPrinter::printFigure() {
 
 void DiamondPrinter::printUpwardTriangle() {
     int rows = ceil(n/2);
-
     int k = n % 2;
     if(k == 0)
         k = 2;
