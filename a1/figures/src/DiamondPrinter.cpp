@@ -1,12 +1,16 @@
+#include <iostream>
 #include "DiamondPrinter.h"
+#include <math.h>
 
-DiamondPrinter::DiamondPrinter(int n0) {
-    &n = n0;
+using namespace std;
+
+DiamondPrinter::DiamondPrinter(int n0): TrianglePrinter(n0){
+    n = n0;
 }
 
 void DiamondPrinter::printFigure() {
     printUpwardTriangle();
-    printDownwardtTriangle();
+    printDownwardTriangle();
 }
 
 void DiamondPrinter::printUpwardTriangle() {

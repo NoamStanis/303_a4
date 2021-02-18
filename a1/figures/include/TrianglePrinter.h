@@ -5,11 +5,13 @@
 #ifndef FIGURES_TRIANGLEPRINTER_H
 #define FIGURES_TRIANGLEPRINTER_H
 
+#include "FigurePrinter.h"
 
 class TrianglePrinter: public FigurePrinter {
 public:
-    int &n;
     TrianglePrinter(int n0);
+    int n;
+    void printFigure();
 
 protected:
     void printDownwardTriangle();
