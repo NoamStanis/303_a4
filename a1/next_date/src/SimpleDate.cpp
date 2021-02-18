@@ -2,13 +2,12 @@
 #include "../include/SimpleDate.h"
 #include <algorithm>
 
-using namespace std;
 
 //SimpleDate constructor
 SimpleDate::SimpleDate(std::string &date) {
-    month = stoi(date.substr(0,2));
-    day = stoi(date.substr(3,2));
-    year = stoi(date.substr(6,4));
+    month = std::stoi(date.substr(0,2));
+    day = std::stoi(date.substr(3,2));
+    year = std::stoi(date.substr(6,4));
 }
 
 SimpleDate::SimpleDate(int &m, int &d, int &y) {
@@ -41,7 +40,7 @@ bool SimpleDate::leapYearCheck() {
 
 
 //toString method
-string SimpleDate::toString() {
+std::string SimpleDate::toString() {
     char dateBuffer[11];
     if(month < 10 || day < 10) {
         snprintf(dateBuffer,sizeof(dateBuffer),"%02d/%02d/%d",month,day,year);
@@ -49,7 +48,7 @@ string SimpleDate::toString() {
     else {
         snprintf(dateBuffer,sizeof(dateBuffer),"%d/%d/%d",month,day,year);
     }
-    string dateString = dateBuffer;
+    std::string dateString = dateBuffer;
     return dateString;
 }
 
@@ -88,9 +87,9 @@ SimpleDate SimpleDate::nextDate() {
     }
 
     int months30 [4] = {9,4,6,11};
-    int *monthCheck = std::find(begin(months30),end(months30), month);
+    int *monthCheck = std::find(std::begin(months30), std::end(months30), month);
     //case: 30 days
-    if(monthCheck != end(months30)) {
+    if(monthCheck != std::end(months30)) {
         if(d < 30) {
             d++;
         }
