@@ -87,7 +87,7 @@ SimpleDate SimpleDate::nextDate() {
     }
 
     int months30 [4] = {9,4,6,11};
-    int *monthCheck = find(begin(months30),end(months30), month);
+    int *monthCheck = std::find(begin(months30),end(months30), month);
     //case: 30 days
     if(monthCheck != end(months30)) {
         if(d < 30) {
