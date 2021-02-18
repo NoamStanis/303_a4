@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../include/SimpleDate.h"
+#include <algorithm>
 
 using namespace std;
 
