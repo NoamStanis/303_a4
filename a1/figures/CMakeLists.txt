@@ -17,11 +17,13 @@ include_directories(
 #define a list, called SRC_FILES, that stores all source code files within "include" and "src"
 file(GLOB_RECURSE SRC_FILES
         "${PROJECT_SOURCE_DIR}/include/FigurePrinter.h"
+        "${PROJECT_SOURCE_DIR}/include/SquarePrinter.h"
         "${PROJECT_SOURCE_DIR}/include/TrianglePrinter.h"
         "${PROJECT_SOURCE_DIR}/include/DiamondPrinter.h"
         "${PROJECT_SOURCE_DIR}/src/FigurePrinter.cpp"
         "${PROJECT_SOURCE_DIR}/src/TrianglePrinter.cpp"
         "${PROJECT_SOURCE_DIR}/src/DiamondPrinter.cpp"
+        "${PROJECT_SOURCE_DIR}/src/SquarePrinter.cpp"
         "${PROJECT_SOURCE_DIR}/src/main.cpp"
         )
 

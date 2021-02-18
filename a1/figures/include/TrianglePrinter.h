@@ -1,7 +1,3 @@
-//
-// Created by Noam Stanislawski on 2/17/21.
-//
-
 #ifndef FIGURES_TRIANGLEPRINTER_H
 #define FIGURES_TRIANGLEPRINTER_H
 
