@@ -9,17 +9,17 @@ using namespace std;
 int main(int argc, char* argv[]) {
     int i = atoi(argv[1]);
 
-    cout << endl;
+    cout << "The triangle:" << endl;
 
     FigurePrinter* printer = new TrianglePrinter(i);
     printer->printFigure();
 
-    cout << endl;
+    cout << "The diamond:" << endl;
 
     printer =  new DiamondPrinter(i);
     printer->printFigure();
 
-    cout << endl;
+    cout << "The square:" << endl;
 
     printer =  new SquarePrinter(i);
     printer->printFigure();
