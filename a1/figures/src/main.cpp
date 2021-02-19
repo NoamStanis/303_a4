@@ -24,5 +24,6 @@ int main(int argc, char* argv[]) {
     printer =  new SquarePrinter(i);
     printer->printFigure();
 
+    delete printer;
     return 0;
 }
