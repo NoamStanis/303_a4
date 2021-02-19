@@ -1,7 +1,7 @@
 #include <iostream>
 #include "SquarePrinter.h"
 
-SquarePrinter::SquarePrinter(int n0): FigurePrinter::FigurePrinter(n0) {
+SquarePrinter::SquarePrinter(int &n0): FigurePrinter::FigurePrinter(n0) {
     n = n0;
 }
 

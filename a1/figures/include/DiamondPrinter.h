@@ -4,9 +4,11 @@
 #include "TrianglePrinter.h"
 
 class DiamondPrinter: public TrianglePrinter {
-public:
+private:
     int n;
-    DiamondPrinter(int n0);
+
+public:
+    DiamondPrinter(int &n0);
     void printFigure();
 
 protected:

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-DiamondPrinter::DiamondPrinter(int n0): TrianglePrinter(n0){
+DiamondPrinter::DiamondPrinter(int &n0): TrianglePrinter(n0){
     n = n0;
 }
 

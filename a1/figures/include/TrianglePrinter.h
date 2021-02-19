@@ -4,9 +4,11 @@
 #include "FigurePrinter.h"
 
 class TrianglePrinter: public FigurePrinter {
-public:
-    TrianglePrinter(int n0);
+private:
     int n;
+
+public:
+    TrianglePrinter(int &n0);
     void printFigure();
 
 protected:

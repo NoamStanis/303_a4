@@ -21,7 +21,6 @@ SimpleDate::SimpleDate(int &m, int &d, int &y) {
  * If year is divisble by 4 or 400, it is.
  * Every other year is not a leap year.
 */
-
 bool SimpleDate::leapYearCheck() {
     if(year % 4 == 0){
 
@@ -52,6 +51,8 @@ std::string SimpleDate::toString() {
     return dateString;
 }
 
+
+//returns a new SimpleDate object holding the following day in it.
 SimpleDate SimpleDate::nextDate() {
     // local variables for new date
     int m, d, y;

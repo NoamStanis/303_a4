@@ -2,9 +2,7 @@
 #include <math.h>
 #include "TrianglePrinter.h"
 
-using namespace std;
-
-TrianglePrinter::TrianglePrinter(int n0): FigurePrinter::FigurePrinter(n0) {
+TrianglePrinter::TrianglePrinter(int &n0): FigurePrinter::FigurePrinter(n0) {
     n = n0;
 }
 void TrianglePrinter::printDownwardTriangle() {

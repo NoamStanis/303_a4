@@ -3,9 +3,11 @@
 
 
 class FigurePrinter {
-public:
+private:
     int n;
-    FigurePrinter(int n0);
+
+public:
+    FigurePrinter(int &n0);
     virtual void printFigure();
 };
 

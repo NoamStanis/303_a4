@@ -4,9 +4,11 @@
 #include "FigurePrinter.h"
 
 class SquarePrinter: public FigurePrinter {
-public:
-    SquarePrinter(int n0);
+private:
     int n;
+
+public:
+    SquarePrinter(int &n0);
     void printFigure();
 
 protected:
