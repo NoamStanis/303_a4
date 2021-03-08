@@ -37,7 +37,7 @@ int main() {
         TC = chrono::duration_cast<chrono::milliseconds>(end - start).count();
         log_TC = log2(TC);
 
-        cout << n << ',' << TA << ',' << TB << ',' << TC << log_n <<
+        cout << n << ',' << TA << ',' << TB << ',' << TC << ',' <<  log_n <<
         ',' << log_TA << ',' << log_TB << ',' << log_TC << endl;
     }
     cout << "Successful execution" <<endl;
