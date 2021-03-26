@@ -137,6 +137,16 @@ private:
      */
     TreeNode<Object> * splay(TreeNode<Object> *node, Object key);
 
+    /*
+     * Rotates left to move node to localRoot.
+     */
+    TreeNode<Object> * zig(TreeNode<Object> *node);
+
+    /*
+    * Rotates right to move node to root.
+    */
+    TreeNode<Object> * zag(TreeNode<Object> *node);
+
 };
 
 #endif //TREES_BINARYSEARCHTREE_H

@@ -25,38 +25,50 @@ void printTreeNode(string prefix, TreeNode<int> *node) {
 void runBSTTest() {
 
     auto *tree = new BinarySearchTree<int>();
+//    tree->insert(10);
+//    tree->insert(2);
+//    tree->insert(1);
+//    tree->insert(6);
+//    tree->insert(7);
+//    tree->insert(5);
+//    tree->insert(11);
+    tree->insert(15);
     tree->insert(10);
-    tree->insert(2);
-    tree->insert(1);
+    tree->insert(25);
     tree->insert(6);
-    tree->insert(7);
-    tree->insert(5);
-    tree->insert(11);
+    tree->insert(12);
+    tree->insert(4);
+    tree->insert(8);
+
 
     cout << "The tree:" << endl;
     tree->printTree();
 
-    int key = 8;
-    cout << "Finding " << key << "..." << endl;
-    TreeNode<int> *node = tree->find(key);
-    printTreeNode("Node", node);
-
-    cout << "Finding min..." << endl;
-    node = tree->findMin();
-    printTreeNode("Min", node);
-
-    cout << "Finding max..." << endl;
-    node = tree->findMax();
-    printTreeNode("Max", node);
-
-    int elem = 2;
-    cout << "Removing " << elem << "..." << endl;
-    tree->remove(elem);
+    tree->findWithSplaying(8);
+    cout << "The splayed tree:" << endl;
     tree->printTree();
 
-    node = tree->find(elem);
-    cout << "Finding " << elem << "..." << endl;
-    printTreeNode("Node", node);
+//    int key = 8;
+//    cout << "Finding " << key << "..." << endl;
+//    TreeNode<int> *node = tree->find(key);
+//    printTreeNode("Node", node);
+//
+//    cout << "Finding min..." << endl;
+//    node = tree->findMin();
+//    printTreeNode("Min", node);
+//
+//    cout << "Finding max..." << endl;
+//    node = tree->findMax();
+//    printTreeNode("Max", node);
+//
+//    int elem = 2;
+//    cout << "Removing " << elem << "..." << endl;
+//    tree->remove(elem);
+//    tree->printTree();
+//
+//    node = tree->find(elem);
+//    cout << "Finding " << elem << "..." << endl;
+//    printTreeNode("Node", node);
 
     delete (tree);
 }

@@ -151,18 +151,88 @@ TreeNode<Object> *BinarySearchTree<Object>::remove(TreeNode<Object> *node, Objec
 
 //-----------------------------------------------
 
+template<class Object>
+TreeNode<Object> *BinarySearchTree<Object>::zig(TreeNode<Object> *node) {
+    TreeNode<Object> *new_root = node->right;
+    node->right = new_root->left;
+    new_root->left = node;
+
+    return new_root;
+
+}
+
+template<class Object>
+TreeNode<Object> *BinarySearchTree<Object>::zag(TreeNode<Object> *node) {
+    TreeNode<Object> *new_root = node->left;
+    node->left = new_root->right;
+    new_root->right = node;
+
+    return new_root;
+}
 
 template<class Object>
 TreeNode<Object> *BinarySearchTree<Object>::splay(TreeNode<Object> *node, Object key) {
-    //TODO: implement this method
-    return nullptr;
+    if(find(key) == nullptr) { // check if node exists
+        return nullptr;
+    }
+
+    if(key == node->element) { // base case: splaying root node
+        return node;
+    }
+
+    if(node->element > key) { //left subtree
+        if(node->left->element > key) { //zig-zig
+            node->left->left = splay(node->left->left, key);
+            node = zag(node);
+        }
+
+        else if(node->left->element < key) { //zig-zag
+            node->left->right = splay(node->left->right,key);
+
+            if(node->left->right != nullptr) {
+                node->left = zig(node->left);
+            }
+        }
+
+        if(node->left == nullptr) {
+            return node;
+        }
+        else {
+            return zag(node);
+        }
+    }
+
+    if(node->element < key) {
+        if(node->right->element > key) { //zag-zig
+            node->right->left = splay(node->right->left, key);
+
+            if(node->right->left != nullptr) {
+                node->right = zag(node->right);
+            }
+        }
+
+        else if(node->right->element < key) { //zag-zag
+            node->right->right = splay(node->right->right, key);
+            node = zig(node);
+        }
+
+        if(node->right == nullptr) {
+            return node;
+        }
+        else {
+            return zig(node);
+        }
+    }
+
+    return node;
 }
 
 
 template<class Object>
 TreeNode<Object> *BinarySearchTree<Object>::findWithSplaying(Object key) {
-    //TODO: implement this method
-    return nullptr;
+    TreeNode<Object> *node = splay(this->root,key);
+    this->root= node;
+    return node;
 }
 
 template<class Object>
@@ -186,6 +256,8 @@ TreeNode<Object> *BinarySearchTree<Object>::findMinWithSplaying() {
     //TODO: implement this method
     return nullptr;
 }
+
+
 
 
 //Declarations of BSTs that store ints, chars, strings, floats and doubles.
