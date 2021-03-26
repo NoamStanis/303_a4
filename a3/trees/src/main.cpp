@@ -1,6 +1,6 @@
 
 
-#include <string>
+#include <string.h>
 #include <iostream>
 #include "bst/BinarySearchTree.h"
 
