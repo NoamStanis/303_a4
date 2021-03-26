@@ -170,6 +170,8 @@ TreeNode<Object> *BinarySearchTree<Object>::zag(TreeNode<Object> *node) {
     return new_root;
 }
 
+// Time Complexity: average Θֹ(log n), best case O(1) if splaying the root. Worst case O(n)
+// All splay methods share these time complexities.
 template<class Object>
 TreeNode<Object> *BinarySearchTree<Object>::splay(TreeNode<Object> *node, Object key) {
     if(find(key) == nullptr) { // check if node exists
@@ -202,7 +204,7 @@ TreeNode<Object> *BinarySearchTree<Object>::splay(TreeNode<Object> *node, Object
         }
     }
 
-    if(node->element < key) {
+    if(node->element < key) { // right subtree
         if(node->right->element > key) { //zag-zig
             node->right->left = splay(node->right->left, key);
 
@@ -227,34 +229,51 @@ TreeNode<Object> *BinarySearchTree<Object>::splay(TreeNode<Object> *node, Object
     return node;
 }
 
-
 template<class Object>
 TreeNode<Object> *BinarySearchTree<Object>::findWithSplaying(Object key) {
     TreeNode<Object> *node = splay(this->root,key);
-    this->root= node;
+    if(node != nullptr) {
+        this->root= node;
+    }
     return node;
 }
 
 template<class Object>
 void BinarySearchTree<Object>::insertWithSplaying(Object element) {
-    //TODO: implement this method
+    insert(element);
+    findWithSplaying(element);
 }
 
 template<class Object>
 void BinarySearchTree<Object>::removeWithSplaying(Object element) {
-    //TODO: implement this method
+    findWithSplaying(element);
+
+    TreeNode<Object> *new_root = this->root->left; //T_L largest element, will become root
+    while(new_root->right != nullptr) {
+        new_root = new_root->right;
+    }
+
+    splay(this->root->left,new_root->element);
+    this->root->left = new_root;
+
+    this->root->left->right = this->root->right; //T_L left child is T_R
+
+    this->root = this->root->left; //removes old root
+
 }
 
+// This and findMin are more likely O(n), as the max or min is likely to be farther down then
+// other elements.
 template<class Object>
 TreeNode<Object> *BinarySearchTree<Object>::findMaxWithSplaying() {
-    //TODO: implement this method
-    return nullptr;
+    findWithSplaying(findMax()->element);
+    return this->root;
 }
 
 template<class Object>
 TreeNode<Object> *BinarySearchTree<Object>::findMinWithSplaying() {
-    //TODO: implement this method
-    return nullptr;
+    findWithSplaying(findMin()->element);
+    return this->root;
 }
 
 

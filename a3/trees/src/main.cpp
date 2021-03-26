@@ -25,50 +25,61 @@ void printTreeNode(string prefix, TreeNode<int> *node) {
 void runBSTTest() {
 
     auto *tree = new BinarySearchTree<int>();
-//    tree->insert(10);
-//    tree->insert(2);
-//    tree->insert(1);
-//    tree->insert(6);
-//    tree->insert(7);
-//    tree->insert(5);
-//    tree->insert(11);
-    tree->insert(15);
-    tree->insert(10);
-    tree->insert(25);
-    tree->insert(6);
-    tree->insert(12);
-    tree->insert(4);
-    tree->insert(8);
+//     5, 4, 3, 6, 7, 8, 9, 18, 17, 16, 15, 14
 
+    int vals[12] = {5, 4, 3, 6, 7, 8, 9, 18, 17, 16, 15, 14};
+    int i;
 
-    cout << "The tree:" << endl;
+    for(i = 0; i < 12; i++){
+        cout <<"\nInserting " << vals[i] << ":\n" << endl;
+        tree->insertWithSplaying(vals[i]);
+        tree->printTree();
+    }
+
+    cout <<"\nDeleting 17:\n" << endl;
+    tree->removeWithSplaying(17);
     tree->printTree();
 
-    tree->findWithSplaying(8);
-    cout << "The splayed tree:" << endl;
+    cout << "\nFinding 45:\n" << endl;
+    TreeNode<int> *node_45 = tree->findWithSplaying(45);
+    cout << "\nValue from finding 45: " << node_45 << "\n" << endl;
     tree->printTree();
 
-//    int key = 8;
-//    cout << "Finding " << key << "..." << endl;
-//    TreeNode<int> *node = tree->find(key);
-//    printTreeNode("Node", node);
-//
-//    cout << "Finding min..." << endl;
-//    node = tree->findMin();
-//    printTreeNode("Min", node);
-//
-//    cout << "Finding max..." << endl;
-//    node = tree->findMax();
-//    printTreeNode("Max", node);
-//
-//    int elem = 2;
-//    cout << "Removing " << elem << "..." << endl;
-//    tree->remove(elem);
-//    tree->printTree();
-//
-//    node = tree->find(elem);
-//    cout << "Finding " << elem << "..." << endl;
-//    printTreeNode("Node", node);
+    cout <<"\nLargest element: " << tree->findMaxWithSplaying()->element << "\n" << endl;
+    tree->printTree();
+
+    cout <<"\nSmallest element: " << tree->findMinWithSplaying()->element << "\n" << endl;
+    tree->printTree();
 
     delete (tree);
+
+////////////////////////////
+
+    auto *string_tree = new BinarySearchTree<string>();
+    char alg[] = "algorithms";
+
+    for(i = 0; i < strlen(alg); i++) {
+        string s;
+        s = alg[i];
+
+        cout <<"\nInserting " << alg[i] << ":\n" << endl;
+        string_tree->insertWithSplaying(s);
+        string_tree->printTree();
+    }
+
+    cout <<"\nDeleting r:\n" << endl;
+    string_tree->removeWithSplaying("r");
+    string_tree->printTree();
+
+    cout <<"\nDeleting m:\n" << endl;
+    string_tree->removeWithSplaying("m");
+    string_tree->printTree();
+
+    cout <<"\nLargest element: " << string_tree->findMaxWithSplaying()->element << "\n" << endl;
+    string_tree->printTree();
+
+    cout <<"\nSmallest element: " << string_tree->findMinWithSplaying()->element << "\n" << endl;
+    string_tree->printTree();
+
+    delete (string_tree);
 }
