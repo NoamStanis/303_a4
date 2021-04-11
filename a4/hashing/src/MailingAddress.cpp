@@ -9,7 +9,7 @@
 using namespace std;
 
 MailingAddress::MailingAddress(string street, string city, string state, int zip) {
-    this->street = move(street);
+    this->street = street;
     this->city = move(city);
     this->state = move(state);
     this->zipcode = zip;
@@ -24,6 +24,8 @@ bool MailingAddress::equals(MailingAddress addr) {
     return false;
 }
 
-std::string MailingAddress::toString() {
-    return std::string();
+string MailingAddress::toString() {
+    string toReturn = "{" + street + ", " + city + ", " + state + ", " + to_string(zipcode) + "}";
+
+    return toReturn;
 }

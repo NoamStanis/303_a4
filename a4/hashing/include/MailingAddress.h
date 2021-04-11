@@ -10,15 +10,22 @@
 class MailingAddress {
 public:
     std::string street,city,state;
-    int zipcode{};
+    int zipcode;
+
+    /*
+     * Constructor method.
+     */
+    explicit MailingAddress(std::string street, std::string city, std::string state, int zip);
 
     /*
      * Returns true if addr is the exact same address as the current address, otherwise, it returns false.
      */
-    explicit MailingAddress(std::string street, std::string city, std::string state, int zip);
-
     bool equals(MailingAddress addr);
 
+    /*
+     * Returns string of the address in the following format:
+     *  {street, city, state, zipcode}
+     */
     std::string toString();
 };
 
