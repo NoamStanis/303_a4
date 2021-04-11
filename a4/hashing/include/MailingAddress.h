@@ -1,6 +1,8 @@
-//
-// Created by Noam Stanislawski on 4/10/21.
-//
+/*
+ * Noam Stanislawski
+ * CSCI 303: Algorithms
+ * 4/10/2021
+ */
 
 #ifndef A4_MAILINGADDRESS_H
 #define A4_MAILINGADDRESS_H

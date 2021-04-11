@@ -7,8 +7,8 @@
 
 MAHashTable::MAHashTable() {
 
-    vector<MailingAddress> null_vector(1);
-    table.assign(97, null_vector);
+    vector<MailingAddress> null_vector(0);
+    table.assign(97, null_vector); //fill up with empty vectors
 }
 
  long MAHashTable::hashInt(int i) {
@@ -19,7 +19,7 @@ MAHashTable::MAHashTable() {
 long MAHashTable::hashString(string s) {
     long hash = 0;
     for (char c : s) {
-        hash =  (R * hash + c) % M;
+        hash =  (R * hash + c) % M; //equation taken from slides
     }
 
     return hash;
@@ -34,6 +34,7 @@ long MAHashTable::hashAddress(MailingAddress addr) {
     stateHash = hashString(addr.state);
     zipHash = hashInt(addr.zipcode);
 
+    // modified equation from the slides
     hash = (((((streetHash * R + cityHash) % M) * R + stateHash) %M) * R + zipHash) % M;
 
     return hash;
@@ -41,7 +42,7 @@ long MAHashTable::hashAddress(MailingAddress addr) {
 
 void MAHashTable::insert(MailingAddress addr) {
     long index = hashAddress(addr);
-    table.at(index).push_back(addr);
+    table.at(index).push_back(addr); //pushing at the back for separate chaining via vector
     N++;
 
 }
@@ -59,36 +60,39 @@ bool MAHashTable::contains(MailingAddress addr) {
 }
 
 float MAHashTable::getLoadFactor() {
-    float lf = (float)N / (float)M;
+    float lf = (float)N/ (float)M;
     return lf;
 }
 
 void MAHashTable::print() {
-    int i,j;
+    int i,j,k; //i and j are iterators, k stores the size of each index (for separate chaining)
+    string s;
     for(i = 0; i < table.size(); i++) {
         cout << i << "->" << "[";
-        for(j = 0; j < table.at(i).size(); j++) {
-            if(table.at(i).size() == 1 && table.at(i).at(j).toString() == "{, , , 0}") { //empty vector
-                cout << "]" << endl;
-            }
 
-            else {
+        k = table.at(i).size();
+        if(k == 0) { //empty index
+            cout << "]" << endl;
+            continue;
+        }
+        else if (k == 1) { //a single value at this index
+            cout << table.at(i).at(0).toString() << "]" << endl;
+        }
 
-                if(j == table.at(i).size() - 1) {
+        else { //separate chaining of values occures here
+            for(j = 0; j < k; j++) {
+                if(j == k-1) {
                     cout << table.at(i).at(j).toString() << "]" << endl;
                 }
-
                 else {
-                    if(table.at(i).at(j).toString() == "{, , , 0}") {
-                        continue;
-                    }
                     cout << table.at(i).at(j).toString() << "; ";
                 }
             }
+        }
+
 
         }
     }
 
-}
 
 

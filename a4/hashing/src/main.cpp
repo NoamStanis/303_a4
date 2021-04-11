@@ -30,18 +30,16 @@ int main(int argc, char *argv[]) {
             table->insert(*new_address);
         }
         addresses.close();
-
-        table->print();
-        cout << "N =" << table->N << " M = " << table->M << endl;
-        cout.precision(5);
-        cout << table->getLoadFactor() << endl;
     }
 
+    table->print();
+    cout  << "\nLoad factor: " << table->getLoadFactor() << endl;
+
     auto *comparisonAddress = new MailingAddress("450 Highland Ave","Salem","MA",1970);
-    cout << table->contains(*comparisonAddress) << endl;
+    cout << "First comparison address check: " <<table->contains(*comparisonAddress) << endl;
 
     comparisonAddress->street = "450 Highland Avenue";
-    cout << table->contains(*comparisonAddress) << endl;
+    cout << "Second comparison address check:" << table->contains(*comparisonAddress) << endl;
 
     return 0;
 }
