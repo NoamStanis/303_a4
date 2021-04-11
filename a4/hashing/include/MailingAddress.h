@@ -7,10 +7,18 @@
 
 #include <string>
 
+/*
+ * An address object used in the hash table.
+ */
 class MailingAddress {
 public:
     std::string street,city,state;
-    int zipcode;
+    int zipcode{};
+
+    /*
+     * Null constructor.
+     */
+    MailingAddress();
 
     /*
      * Constructor method.

@@ -32,9 +32,10 @@ int main(int argc, char *argv[]) {
         addresses.close();
 
         table->print();
+        cout << "N =" << table->N << " M = " << table->M << endl;
+        cout.precision(5);
         cout << table->getLoadFactor() << endl;
     }
-
 
     auto *comparisonAddress = new MailingAddress("450 Highland Ave","Salem","MA",1970);
     cout << table->contains(*comparisonAddress) << endl;

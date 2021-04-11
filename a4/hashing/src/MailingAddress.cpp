@@ -8,6 +8,8 @@
 
 using namespace std;
 
+MailingAddress::MailingAddress() = default;
+
 MailingAddress::MailingAddress(string street, string city, string state, int zip) {
     this->street = street;
     this->city = move(city);
@@ -29,3 +31,5 @@ string MailingAddress::toString() {
 
     return toReturn;
 }
+
+

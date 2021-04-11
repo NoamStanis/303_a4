@@ -13,14 +13,30 @@ using namespace std;
 
 class MAHashTable {
 private:
-    static const int M = 97;
     static const int R = 31;
 
     vector<vector<MailingAddress>> table;
 
 public:
+    static const int M = 97;
+    int N = 0;
+    MAHashTable();
+
+    /*
+     * This returns the hash of the integer i using the function h(i) = i % M.
+     */
     static long hashInt(int i);
+
+    /*
+     *  c_i is the ith character of s
+     *  h(c_i) = (R * h(c_i-1) + c_i) % M
+     */
     static long hashString(string s);
+
+    /*
+     * Computes the hash of a given address object.
+     * Uses the hash values
+     */
     static long hashAddress( MailingAddress addr);
 
     void insert(MailingAddress addr);
